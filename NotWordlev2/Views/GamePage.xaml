@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NotWordlev2.GamePage"
+             BackgroundColor="#121213"
+             xmlns:viewmodel="clr-namespace:NotWordlev2.ViewModels"
+             xmlns:model="clr-namespace:NotWordlev2.Models"
+             Shell.NavBarIsVisible="False"
+             x:DataType="viewmodel:GameViewModel">
+    
+    <Grid RowDefinitions="*, Auto"
+      Padding="8,12,8,12">
+
+        <!--FRAMES, för varje row skapa horizontal, för varje letter skapa frame-->
+        <VerticalStackLayout
+        Spacing="8"
+        BindableLayout.ItemsSource="{Binding Rows}">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate x:DataType="model:Word">
+                    <HorizontalStackLayout 
+                        Spacing="8"
+                        HorizontalOptions="Center"
+                        BindableLayout.ItemsSource="{Binding Letters}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate x:DataType="model:Letter">
+                                <Frame
+                                    WidthRequest="80"
+                                    HeightRequest="80"
+                                    BackgroundColor="{Binding Color}">
+                                    <Label Text="{Binding Input}"
+                                       FontSize="30"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center">
+                                        
+                                    </Label>
+                                </Frame>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </HorizontalStackLayout>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+
+        </VerticalStackLayout>
+        
+        <!--KEYBOARD Binding source microsoft documentation-->
+        <VerticalStackLayout Grid.Row="1" Spacing="4">
+            <HorizontalStackLayout 
+                    Spacing="2"
+                    HorizontalOptions="Center"
+                    BindableLayout.ItemsSource="{Binding KeyboardRow1}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="{x:Null}">
+                        <Button
+                            BackgroundColor="#818384"
+                            Text="{Binding .}"
+                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:GameViewModel}}, Path=InsertLettersCommand}"
+                            CommandParameter="{Binding .}"/>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout 
+                    Spacing="2"
+                    HorizontalOptions="Center"
+                    BindableLayout.ItemsSource="{Binding KeyboardRow2}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="{x:Null}">
+                        <Button
+                            BackgroundColor="#818384"
+                            Text="{Binding .}"
+                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:GameViewModel}}, Path=InsertLettersCommand}"
+                            CommandParameter="{Binding .}"/>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout 
+                    Spacing="4"
+                    HorizontalOptions="Center"
+                    BindableLayout.ItemsSource="{Binding KeyboardRow3}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="{x:Null}">
+                        <Button
+                            BackgroundColor="#818384"
+                            Text="{Binding .}"
+                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:GameViewModel}}, Path=InsertLettersCommand}"
+                            CommandParameter="{Binding .}"/>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+
+        
+    </Grid>
+</ContentPage>

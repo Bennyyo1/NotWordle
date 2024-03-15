@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NotWordlev2.Views.WinPage"
+             Shell.NavBarIsVisible="False"
+            BackgroundColor="#121213">
+    <VerticalStackLayout>
+        <Label
+            Margin="0,50,0,10"
+            Text="Congratulations, you won!"
+            FontSize="23"
+            TextColor="Gold"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Label
+            
+            Text="You guessed the word:"
+            FontSize="23"
+            TextColor="Gold"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Label
+            Margin="0,0,0,10"
+            Text="{Binding AnswerText}"
+            FontSize="18"
+            TextColor="Green"
+            VerticalOptions="Center"
+            HorizontalOptions="Center">
+
+        </Label>
+
+        <Button
+            Text="Back To Main"
+            WidthRequest="200"
+            Clicked="OnBackToMain">
+            
+        </Button>
+    </VerticalStackLayout>
+</ContentPage>

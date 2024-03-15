@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NotWordlev2.MainPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#121213">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Image
+                Source="notwordle_white.png"
+                HeightRequest="185"
+                Aspect="AspectFit"/>
+
+            <Label
+                Text="A word guessing game"
+                TextColor="White"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <Button
+                WidthRequest="200"
+                Text="Login"
+                Clicked="OnLoginBtnClicked"
+                HorizontalOptions="Center">
+                
+            </Button>
+
+            <Button
+                x:Name="PlayBtn"
+                WidthRequest="200"
+                Text="Play" 
+                Clicked="OnPlayBtnClicked"
+                HorizontalOptions="Center" />
+            
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
